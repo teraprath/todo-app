@@ -13,7 +13,7 @@ function TaskContainer(props) {
           {
             id: uuid(),
             title: data.get("task-title"),
-            priority: 0,
+            priority: "High",
             deadline: null,
             closed: false
           }

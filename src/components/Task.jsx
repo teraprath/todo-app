@@ -2,6 +2,8 @@ import { EllipsisVerticalIcon } from "@heroicons/react/24/solid"
 import { CheckCircleIcon as OpenIcon } from "@heroicons/react/24/outline"
 import { CheckCircleIcon as ClosedIcon } from "@heroicons/react/24/solid"
 
+import Badge from "./Badge"
+
 function Task(props) {
 
   function toggleTask() {
@@ -20,13 +22,16 @@ function Task(props) {
       <div className="flex space-x-4">
         <button onClick={toggleTask}>
           {props.task.closed
-            ? <ClosedIcon className="text-green-400 hover:text-green-500 size-6 transition-all duration-200" />
-            : <OpenIcon className="text-gray-400 hover:text-green-400 size-6 transition-all duration-200" />
+            ? <ClosedIcon className="text-green-400 hover:text-green-500 size-6 cursor-pointer transition-all duration-200" />
+            : <OpenIcon className="text-gray-400 hover:text-green-400 size-6 cursor-pointer transition-all duration-200" />
           }
         </button>
         <div>
-          <p className={props.task.closed ? "line-through" : ""}>{props.task.title}</p>
-          <p className="text-gray-400">Task Description</p>
+          <p className={props.task.closed ? "line-through" : ""}>
+            {props.task.title}
+            {!props.task.closed && <Badge priority={props.task.priority} />}
+          </p>
+          {!props.task.closed && props.deadline != null && <p className="text-gray-400">No deadline</p>}
         </div>
       </div>
       <button className="text-gray-400 hover:text-black cursor-pointer transition-all duration-200">
