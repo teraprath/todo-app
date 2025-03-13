@@ -66,10 +66,6 @@ function TaskEdit(props) {
                         <option value="Low">Low</option>
                       </select>
                     </div>
-                    {/* <p className="text-sm text-gray-500">
-                      Are you sure you want to deactivate your account? All of your data will be permanently removed.
-                      This action cannot be undone.
-                    </p> */}
                   </div>
                 </div>
               </div>
