@@ -57,6 +57,7 @@ function TaskEdit(props) {
                       <input
                         className="w-2/3 p-3 bg-white rounded-lg outline-0 shadow-xs"
                         name="deadline"
+                        defaultValue={props.task.deadline.toLocaleString("sv-SE").slice(0, 16)}
                         type="datetime-local"
                       />
                       <select name="priority" defaultValue={props.task.priority} className="w-1/3 p-3 bg-white rounded-lg shadow-xs appearance-none focus:ring-0 focus:outline-none">
