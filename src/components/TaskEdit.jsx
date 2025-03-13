@@ -31,7 +31,7 @@ function TaskEdit(props) {
       />
 
       <form action={saveTask} className="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div className="flex min-h-full items-start justify-center p-4 text-center sm:items-center sm:p-0">
           <DialogPanel
             transition
             className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-100 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-lg data-closed:sm:translate-y-0 data-closed:sm:scale-95"
@@ -45,7 +45,7 @@ function TaskEdit(props) {
                   <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
                     Edit
                   </DialogTitle>
-                  <div className="mt-2 w-102 flex flex-col gap-2">
+                  <div className="mt-2 sm:w-102 flex flex-col gap-2">
                     <input
                       className="w-full p-3 bg-white rounded-lg outline-0 shadow-xs"
                       name="title"
@@ -53,14 +53,14 @@ function TaskEdit(props) {
                       defaultValue={props.task.title}
                       type="text"
                     />
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 flex-col sm:flex-row">
                       <input
-                        className="w-2/3 p-3 bg-white rounded-lg outline-0 shadow-xs"
+                        className="w-full sm:w-2/3 p-3 bg-white rounded-lg outline-0 shadow-xs"
                         name="deadline"
                         defaultValue={props.task.deadline.toLocaleString("sv-SE").slice(0, 16)}
                         type="datetime-local"
                       />
-                      <select name="priority" defaultValue={props.task.priority} className="w-1/3 p-3 bg-white rounded-lg shadow-xs appearance-none focus:ring-0 focus:outline-none">
+                      <select name="priority" defaultValue={props.task.priority} className="w-full sm:w-1/3 p-3 bg-white rounded-lg shadow-xs appearance-none focus:ring-0 focus:outline-none">
                         <option value="no-priority">No priority</option>
                         <option value="High">High</option>
                         <option value="Medium">Medium</option>
