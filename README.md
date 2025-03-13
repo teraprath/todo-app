@@ -1,2 +1,19 @@
 # todo-app
-https://todo-app-chi-eight-14.vercel.app
+
+<div align="center">
+  <div>
+      <img src="https://i.imgur.com/MwpPkNR.png">
+      <a href="https://todo.teraprath.dev" target="_blank">Live Demo</a>
+  </div>
+</div>
+
+# Installation
+```
+git clone https://github.com/teraprath/todo-app.git
+```
+```
+npm install
+```
+```
+npm run dev
+```
