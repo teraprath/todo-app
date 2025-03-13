@@ -27,8 +27,8 @@ function TaskContainer(props) {
 
       <form action={addTask} className="flex justify-between mb-4 space-x-4">
         <input name="task-title" type="text" placeholder="e.g. make dishes" required={true} className="p-4 w-2/3 bg-white rounded-lg outline-0 shadow-sm" />
-        <button className="w-1/3 bg-green-400 hover:bg-green-500 px-4 py-4 rounded-lg text-white text-sm font-semibold flex justify-center items-center gap-2 cursor-pointer transition-all duration-100 shadow-sm">
-          <PlusCircleIcon className="size-6" /> Add Task
+        <button className="w-1/3 bg-green-400 hover:bg-green-500 px-4 py-4 rounded-lg text-white text-xs sm:text-sm font-semibold flex justify-center items-center gap-2 cursor-pointer transition-all duration-100 shadow-sm">
+          <PlusCircleIcon className="size-4 sm:size-6" /> Add Task
         </button>
       </form>
 
