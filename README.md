@@ -2,7 +2,7 @@
 
 <div align="center">
   <div>
-      <img src="https://i.imgur.com/MwpPkNR.png">
+      <img src="https://i.imgur.com/aHBdvgv.png">
       <a href="https://todo.teraprath.dev" target="_blank">Live Demo</a>
   </div>
 </div>
