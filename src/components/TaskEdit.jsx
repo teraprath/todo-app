@@ -6,13 +6,18 @@ import { PencilSquareIcon } from '@heroicons/react/24/solid'
 function TaskEdit(props) {
 
   function saveTask(data) {
+
+    const priority = data.get("priority");
+    const deadline = new Date(data.get("deadline").toString());
+
     props.setOpen(false)
     props.setTasks(prevTasks => (prevTasks.map(prevTask => (
       prevTask.id === props.task.id
       ? {
         ...prevTask,
-        title: data.get("task-title"),
-        priority: data.get("priority") !== "no-priority" ? data.get("priority") : "no-priority"
+        title: data.get("title"),
+        priority: priority !== "no-priority" ? priority : "no-priority",
+        deadline: !isNaN(deadline) ? deadline : false
       }
       : prevTask
     ))))
@@ -43,7 +48,7 @@ function TaskEdit(props) {
                   <div className="mt-2 w-102 flex flex-col gap-2">
                     <input
                       className="w-full p-3 bg-white rounded-lg outline-0 shadow-xs"
-                      name="task-title"
+                      name="title"
                       placeholder="e.g. make dishes"
                       defaultValue={props.task.title}
                       type="text"
@@ -51,7 +56,7 @@ function TaskEdit(props) {
                     <div className="flex gap-2">
                       <input
                         className="w-2/3 p-3 bg-white rounded-lg outline-0 shadow-xs"
-                        name="task-deadline"
+                        name="deadline"
                         type="datetime-local"
                       />
                       <select name="priority" defaultValue={props.task.priority} className="w-1/3 p-3 bg-white rounded-lg shadow-xs appearance-none focus:ring-0 focus:outline-none">
