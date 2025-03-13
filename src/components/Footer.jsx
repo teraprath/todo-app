@@ -5,7 +5,7 @@ function Footer() {
     <footer className="h-20 w-full bg-white shadow-md flex items-center justify-center space-x-1 text-xs font-medium text-gray-400">
       <p>Made with</p>
       <HeartIcon className="size-6 text-red-400" />
-      <p>by <a href="https://teraprath.dev" target="_blank" className="underline">teraprath</a></p>
+      <p>by <a href="https://github.com/teraprath" target="_blank" className="underline">teraprath</a></p>
     </footer>
   )
 }
