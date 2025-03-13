@@ -1,7 +1,7 @@
-import { EllipsisVerticalIcon } from "@heroicons/react/24/solid"
 import { CheckCircleIcon as OpenIcon } from "@heroicons/react/24/outline"
 import { CheckCircleIcon as ClosedIcon } from "@heroicons/react/24/solid"
 
+import TaskMenu from "./TaskMenu"
 import Badge from "./Badge"
 
 function Task(props) {
@@ -18,25 +18,23 @@ function Task(props) {
   }
 
   return (
-    <div className="bg-white shadow-md rounded-lg mb-4 p-4 flex justify-between">
+    <div className="bg-white shadow-sm rounded-lg mb-4 p-4 flex items-center justify-between">
       <div className="flex space-x-4">
         <button onClick={toggleTask}>
           {props.task.closed
-            ? <ClosedIcon className="text-green-400 hover:text-green-500 size-6 cursor-pointer transition-all duration-200" />
-            : <OpenIcon className="text-gray-400 hover:text-green-400 size-6 cursor-pointer transition-all duration-200" />
+            ? <ClosedIcon className="text-green-400 hover:text-green-500 size-6 cursor-pointer transition-all duration-100" />
+            : <OpenIcon className="text-gray-400 hover:text-green-400 size-6 cursor-pointer transition-all duration-100" />
           }
         </button>
         <div>
           <p className={props.task.closed ? "line-through" : ""}>
             {props.task.title}
-            {!props.task.closed && <Badge priority={props.task.priority} />}
+            {!props.task.closed && props.task.priority !== "no-priority" && <Badge priority={props.task.priority} />}
           </p>
-          {!props.task.closed && props.deadline != null && <p className="text-gray-400">No deadline</p>}
+          {!props.task.closed && props.deadline != null ? <p className="text-gray-400">Description</p> : null}
         </div>
       </div>
-      <button className="text-gray-400 hover:text-black cursor-pointer transition-all duration-200">
-        <EllipsisVerticalIcon className="size-6" />
-      </button>
+      <TaskMenu task={props.task} setTasks={props.setTasks} />
     </div>
   )
 }
