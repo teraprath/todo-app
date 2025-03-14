@@ -36,7 +36,7 @@ function Task(props) {
           }
         </button>
         <div>
-          <p className={props.task.closed ? "line-through" : "flex items-center gap-2"}>
+          <p className={props.task.closed ? "line-through text-gray-400" : "flex items-center gap-2"}>
             {props.task.title}
             {!props.task.closed && props.task.priority !== "no-priority" && <Badge priority={props.task.priority} />}
           </p>

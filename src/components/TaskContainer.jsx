@@ -22,6 +22,13 @@ function TaskContainer(props) {
     }
   }
 
+  const priorityOrder = {
+    "High": 3,
+    "Medium": 2,
+    "Low": 1,
+    "no-priority": 0
+  }
+
   return (
     <section className="px-6 lg:px-60 2xl:px-120 mb-8">
 
@@ -32,10 +39,28 @@ function TaskContainer(props) {
         </button>
       </form>
 
-      {props.tasks.length > 0 &&
-        props.tasks.map(task => {
-          return <Task key={task.id} task={task} setTasks={props.setTasks} />
-        })
+      {
+        props.tasks
+          .slice()
+          .sort((a, b) => {
+
+            // Sortieren nach geschlossenen Tasks
+            if (a.closed !== b.closed) {
+              return a.closed - b.closed
+            }
+
+            // Sortieren nach Deadlines
+            if (a.deadline === false && b.deadline !== false) return 1
+            if (b.deadline === false && a.deadline !== false) return -1
+            if (a.deadline !== false && b.deadline !== false) {
+              return a.deadline - b.deadline
+            }
+
+            // Sortieren nach Priorität
+            return priorityOrder[b.priority] - priorityOrder[a.priority]
+
+          })
+          .map(task => <Task key={task.id} task={task} setTasks={props.setTasks}/>)
       }
 
     </section>
